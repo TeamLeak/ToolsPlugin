@@ -1,0 +1,25 @@
+name: ToolsPlugin
+version: '${version}'
+main: com.github.leanfe.Application
+api-version: 1.15
+prefix: ToolsPlugin
+load: STARTUP
+authors: [ Leanfe ]
+description: Basic tools.
+website: leanfe.github.io
+commands:
+  toolsjump:
+    usage: "/toolsjump <add/decrease> <percentage>"
+    description: "Set movement speed."
+    permission: "toolsjump.admin"
+    permission-message: "You do not have permission to use this command."
+  toolscreeper:
+    usage: "/toolscreeper <enable/disable>"
+    description: "Enable/Disable creeper explosion."
+    permission: "toolscreeper.admin"
+    permission-message: "You do not have permission to use this command."
+  creeperadd:
+    usage: "/creeperadd add"
+    description: "Add block to list."
+    permission: "toolscreeper.admin"
+    permission-message: "You do not have permission to use this command."

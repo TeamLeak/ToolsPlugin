@@ -1,0 +1,33 @@
+# Enabled?
+Enabled: true
+
+# --------------
+# --- Cryper ---
+# --------------
+
+# Is the creeper module enabled?
+CreeperModule_enabled: true
+
+# Should the damage take place on the players or not.
+LeaveDamage: true
+
+# Should I turn off the explosions altogether?
+DisableExplosions: true
+# Those blocks that should not break when the creeper explodes.
+Creeper_blocks:
+  - "diamond_block"
+
+# -----------------
+# --- JumpTools ---
+# -----------------
+
+# Is the jump module enabled?
+JumpModule_enabled: true
+
+# These values are responsible for how many percent the player's speed will be increased, or vice versa reduced. (In %)
+JumpSpeed: 5
+NormalSpeed: 12
+
+# Messages.
+JumpAccelerate: '&aYou have been accelerated!'
+JumpDecelerate: '&cYou have been slowed down!'
