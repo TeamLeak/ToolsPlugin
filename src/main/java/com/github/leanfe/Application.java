@@ -3,7 +3,6 @@ package com.github.leanfe;
 import com.github.leanfe.tools.CommandManager;
 import com.github.leanfe.tools.ListenerManager;
 import lombok.Getter;
-import lombok.var;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
