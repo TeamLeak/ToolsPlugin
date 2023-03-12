@@ -1,14 +1,18 @@
 package com.github.leanfe.jump;
 
+import com.destroystokyo.paper.event.player.PlayerJumpEvent;
 import com.github.leanfe.Constants;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import java.util.HashMap;
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class JumpListener implements Listener {
@@ -18,7 +22,22 @@ public class JumpListener implements Listener {
 
     private final AtomicBoolean isMessaged = new AtomicBoolean(false);
 
-    @EventHandler
+    private final HashMap<UUID, Boolean> playerList = new HashMap<>();
+
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onPlayerJump(PlayerJumpEvent event) {
+        Player player = event.getPlayer();
+
+        boolean fromPlayerMove = playerList.getOrDefault(player.getUniqueId(), false);
+
+        if (fromPlayerMove && !player.isOp()) {
+            player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "You can't move by jumping.");
+            event.setCancelled(true);
+        }
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
 
@@ -26,7 +45,8 @@ public class JumpListener implements Listener {
 
         // Check if the player is running without jumping
         if (player.isOnGround() && player.isSprinting() && !player.isFlying()) {
-            player.removePotionEffect(PotionEffectType.SLOW);
+            playerList.put(player.getUniqueId(), true);
+
             player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20 * duration, accelerationLevel));
 
             if (!isMessaged.get()) {
