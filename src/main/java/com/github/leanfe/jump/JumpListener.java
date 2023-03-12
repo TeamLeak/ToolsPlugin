@@ -1,8 +1,6 @@
 package com.github.leanfe.jump;
 
-import com.github.leanfe.Application;
 import com.github.leanfe.Constants;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,59 +13,34 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class JumpListener implements Listener {
     private final int accelerationPercentage = Constants.JumpAccelerate;
-    private final int decelerationPercentage = Constants.JumpDecelerate;
+
+    private final int duration = 5; // in seconds
 
     private final AtomicBoolean isMessaged = new AtomicBoolean(false);
 
-    private final AtomicBoolean isAccelerated = new AtomicBoolean(false);
-
-
-    private final AtomicBoolean afterWhile = new AtomicBoolean(false);
-
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
-        // Check if the player is jumping
-
         Player player = event.getPlayer();
 
-        if (player.isFlying())
-            return;
+        int accelerationLevel = Math.round((float) accelerationPercentage / 100.0f * 2);
 
-        int accelerationLevel = Math.round((float)accelerationPercentage / 100.0f * 2);
-        int decelerationLevel = Math.round((float)decelerationPercentage / 100.0f * 2);
+        // Check if the player is running without jumping
+        if (player.isOnGround() && player.isSprinting() && !player.isFlying()) {
+            player.removePotionEffect(PotionEffectType.SLOW);
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20 * duration, accelerationLevel));
 
-        Bukkit.getScheduler().runTaskAsynchronously(Application.getInstance(), () -> {
-
-            while (player.isSprinting()) {
-                afterWhile.set(true);
-
-                if (!player.isJumping()) {
-                    if (!isAccelerated.get()) {
-                        player.sendMessage(ChatColor.GREEN + "You have been accelerated!");
-                        isAccelerated.set(true);
-                    }
-
-                    player.removePotionEffect(PotionEffectType.SLOW);
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20*5, accelerationLevel));
-                } else {
-                    if (!isMessaged.get()) {
-                        player.sendMessage(ChatColor.RED + "You have been slowed down as you move through jumps!");
-                        isMessaged.set(true);
-                    }
-
-                    player.removePotionEffect(PotionEffectType.SPEED);
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 20*10, decelerationLevel));
-                }
+            if (!isMessaged.get()) {
+                player.sendMessage(ChatColor.GREEN + "You have been accelerated!");
+                isMessaged.set(true);
             }
+        } else {
+            if (isMessaged.get()) {
 
-            if (afterWhile.get()) {
-                player.sendMessage(ChatColor.BLUE + "All effects have been removed!");
                 player.removePotionEffect(PotionEffectType.SPEED);
-                player.removePotionEffect(PotionEffectType.SLOW);
+                player.sendMessage(ChatColor.GREEN + "All effects have been removed!");
+                isMessaged.set(false);
 
-                afterWhile.set(false);
             }
-        });
+        }
     }
-
 }
