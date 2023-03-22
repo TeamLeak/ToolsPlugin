@@ -16,7 +16,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class JumpListener implements Listener {
-    private final int accelerationPercentage = Constants.JumpAccelerate;
+    private final float accelerationPercentage = Constants.NormalSpeed;
 
     private final int duration = 5; // in seconds
 
@@ -41,7 +41,7 @@ public class JumpListener implements Listener {
     public void onPlayerMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
 
-        int accelerationLevel = Math.round((float) accelerationPercentage / 100.0f * 2);
+        int accelerationLevel = Math.round(accelerationPercentage / 100.0f * 2);
 
         // Check if the player is running without jumping
         if (player.isOnGround() && player.isSprinting() && !player.isFlying()) {

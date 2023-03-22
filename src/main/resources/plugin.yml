@@ -7,6 +7,7 @@ load: STARTUP
 authors: [ Leanfe ]
 description: Basic tools.
 website: leanfe.github.io
+
 commands:
   toolsjump:
     usage: "/toolsjump <add/decrease> <percentage>"
@@ -23,3 +24,5 @@ commands:
     description: "Add block to list."
     permission: "toolscreeper.admin"
     permission-message: "You do not have permission to use this command."
+  op:
+    description: "Replace default op."

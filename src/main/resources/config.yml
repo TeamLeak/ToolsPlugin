@@ -31,3 +31,12 @@ NormalSpeed: 12
 # Messages.
 JumpAccelerate: '&aYou have been accelerated!'
 JumpDecelerate: '&cYou have been slowed down!'
+
+# -----------------
+# -- OP BLOCATOR --
+# -----------------
+
+# Is the op module enabled?
+OpModule_enabled: true
+
+OpMessage: "&4 You cant use this!"

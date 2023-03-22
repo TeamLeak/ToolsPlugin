@@ -17,9 +17,13 @@ public class Constants {
 
     public static float NormalSpeed = Application.getInstance().getConfig().getInt("NormalSpeed");
 
-    public static int JumpAccelerate = Application.getInstance().getConfig().getInt("JumpAccelerate");
+    public static String JumpAccelerate = Application.getInstance().getConfig().getString("JumpAccelerate");
 
-    public static int JumpDecelerate = Application.getInstance().getConfig().getInt("JumpDecelerate");
+    public static String JumpDecelerate = Application.getInstance().getConfig().getString("JumpDecelerate");
+
+    public static boolean OpEnabled = Application.getInstance().getConfig().getBoolean("OpModule_enabled");
+
+    public static String OpMessage = Application.getInstance().getConfig().getString("OpMessage");
 
     public static void reload() {
         CreeperEnabled = Application.getInstance().getConfig().getBoolean("CreeperModule_enabled");
@@ -35,9 +39,13 @@ public class Constants {
 
         NormalSpeed = Application.getInstance().getConfig().getInt("NormalSpeed");
 
-        JumpAccelerate = Application.getInstance().getConfig().getInt("JumpAccelerate");
+        JumpAccelerate = Application.getInstance().getConfig().getString("JumpAccelerate");
 
-        JumpDecelerate = Application.getInstance().getConfig().getInt("JumpDecelerate");
+        JumpDecelerate = Application.getInstance().getConfig().getString("JumpDecelerate");
+
+        OpEnabled = Application.getInstance().getConfig().getBoolean("OpModule_enabled");
+
+        OpMessage = Application.getInstance().getConfig().getString("OpMessage");
     }
 
 }
