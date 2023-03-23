@@ -1,6 +1,5 @@
 package com.github.leanfe;
 
-import com.github.leanfe.config.Configuration;
 import com.github.leanfe.tools.CommandManager;
 import com.github.leanfe.tools.ListenerManager;
 import lombok.Getter;

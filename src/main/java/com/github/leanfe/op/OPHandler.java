@@ -1,8 +1,6 @@
 package com.github.leanfe.op;
 
 import com.github.leanfe.config.Configuration;
-import com.github.leanfe.config.modules.OpModule;
-import com.github.leanfe.module.ModuleManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

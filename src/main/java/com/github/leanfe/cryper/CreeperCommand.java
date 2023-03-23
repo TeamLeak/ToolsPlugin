@@ -2,9 +2,6 @@ package com.github.leanfe.cryper;
 
 import com.github.leanfe.Application;
 import com.github.leanfe.config.Configuration;
-import com.github.leanfe.config.modules.CreeperModule;
-import com.github.leanfe.module.Module;
-import com.github.leanfe.module.ModuleManager;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

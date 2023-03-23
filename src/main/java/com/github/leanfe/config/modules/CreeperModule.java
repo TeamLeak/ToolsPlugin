@@ -1,14 +1,12 @@
 package com.github.leanfe.config.modules;
 
 import com.github.leanfe.Application;
-import com.github.leanfe.module.Module;
-import com.github.leanfe.module.ModuleManager;
 import lombok.Getter;
 
 import java.util.List;
 
 @Getter
-public class CreeperModule extends Module {
+public class CreeperModule {
 
     private boolean CreeperEnabled;
 
@@ -18,18 +16,12 @@ public class CreeperModule extends Module {
 
     private List<String> CreeperBlocks;
 
-    public CreeperModule(ModuleManager moduleManager) {
-        super(moduleManager, "Creeper");
-    }
-
-    @Override
     public void load() {
         CreeperEnabled = Application.getInstance().getConfig().getBoolean("CreeperModule_enabled");
 
         reload();
     }
 
-    @Override
     public void reload() {
         LeaveDamage = Application.getInstance().getConfig().getBoolean("LeaveDamage");
         DisableExplosions = Application.getInstance().getConfig().getBoolean("DisableExplosions");
