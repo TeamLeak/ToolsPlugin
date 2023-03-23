@@ -1,6 +1,8 @@
 package com.github.leanfe.op;
 
-import com.github.leanfe.Constants;
+import com.github.leanfe.config.Configuration;
+import com.github.leanfe.config.modules.OpModule;
+import com.github.leanfe.module.ModuleManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,7 +18,7 @@ public class OPHandler implements CommandExecutor {
             return true;
 
         if (command.getName().equalsIgnoreCase("op")) {
-            sender.sendMessage(ChatColor.stripColor(Constants.OpMessage));
+            sender.sendMessage(ChatColor.stripColor(Configuration.opModule.getOpMessage()));
             return false;
         }
         return true;

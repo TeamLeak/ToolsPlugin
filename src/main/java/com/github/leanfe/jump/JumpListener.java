@@ -1,7 +1,9 @@
 package com.github.leanfe.jump;
 
 import com.destroystokyo.paper.event.player.PlayerJumpEvent;
-import com.github.leanfe.Constants;
+import com.github.leanfe.config.Configuration;
+import com.github.leanfe.config.modules.JumpModule;
+import com.github.leanfe.module.ModuleManager;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -16,7 +18,8 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class JumpListener implements Listener {
-    private final float accelerationPercentage = Constants.NormalSpeed;
+
+    private final float accelerationPercentage = Configuration.jumpModule.getNormalSpeed();
 
     private final int duration = 5; // in seconds
 

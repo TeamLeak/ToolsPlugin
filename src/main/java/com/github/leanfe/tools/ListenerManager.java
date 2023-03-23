@@ -4,8 +4,8 @@ import com.github.leanfe.Application;
 import com.github.leanfe.cryper.CryperListener;
 import com.github.leanfe.jump.JumpListener;
 
-import static com.github.leanfe.Constants.CreeperEnabled;
-import static com.github.leanfe.Constants.JumpEnabled;
+import static com.github.leanfe.config.Constants.CreeperEnabled;
+import static com.github.leanfe.config.Constants.JumpEnabled;
 
 public class ListenerManager {
 

@@ -52,9 +52,6 @@ OpMessage: "&4 You cant use this!"
 # Is the fetch module enabled?
 FetchModule_enabled: true
 
-# Should colors be used in the output?
-UseColors: true
-
 # Only the console can perform actions or not?
 ForConsole: true
 

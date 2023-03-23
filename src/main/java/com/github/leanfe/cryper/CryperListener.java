@@ -1,6 +1,8 @@
 package com.github.leanfe.cryper;
 
-import com.github.leanfe.Constants;
+import com.github.leanfe.config.Configuration;
+import com.github.leanfe.config.modules.CreeperModule;
+import com.github.leanfe.module.ModuleManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Creeper;
@@ -19,7 +21,8 @@ public class CryperListener implements Listener {
     private final Set<Material> allowedBlocks = new HashSet<>();
 
     {
-        Constants.CreeperBlocks.forEach(blockName -> {
+
+        Configuration.creeperModule.getCreeperBlocks().forEach(blockName -> {
             Material blockMaterial = Material.getMaterial(blockName);
             if (blockMaterial != null) {
                 allowedBlocks.add(blockMaterial);
@@ -29,7 +32,7 @@ public class CryperListener implements Listener {
         });
     }
 
-    private final boolean isDamageEnabled = Constants.LeaveDamage;
+    private final boolean isDamageEnabled = Configuration.creeperModule.isLeaveDamage();
 
     @EventHandler
     public void onEntityExplode(EntityExplodeEvent event) {

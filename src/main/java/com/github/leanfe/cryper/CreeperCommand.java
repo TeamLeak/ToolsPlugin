@@ -1,29 +1,33 @@
 package com.github.leanfe.cryper;
 
 import com.github.leanfe.Application;
-import com.github.leanfe.Constants;
+import com.github.leanfe.config.Configuration;
+import com.github.leanfe.config.modules.CreeperModule;
+import com.github.leanfe.module.Module;
+import com.github.leanfe.module.ModuleManager;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class CreeperCommand implements CommandExecutor {
+
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, Command cmd, @NotNull String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("creeperadd")) {
-            if (!(sender instanceof Player)) {
+            if (!(sender instanceof Player player)) {
                 sender.sendMessage("This command can only be executed by a player.");
                 return false;
             }
 
-            Player player = (Player) sender;
             ItemStack heldItem = player.getInventory().getItemInMainHand();
             Material heldMaterial = heldItem.getType();
             addAllowedBlock(heldMaterial);
 
-            player.sendMessage("Added " + heldMaterial.toString() + " to allowed blocks.");
+            player.sendMessage("Added " + heldMaterial + " to allowed blocks.");
             return true;
         }
 
@@ -32,7 +36,8 @@ public class CreeperCommand implements CommandExecutor {
             if (args[0].equalsIgnoreCase("disable")) {
                 Application.getInstance().getConfig().set("CreeperModule_enabled", false);
                 Application.getInstance().saveConfig();
-                Constants.reload();
+
+                Configuration.creeperModule.reload();
 
                 sender.sendMessage("Disabled creeper module!");
 
@@ -47,7 +52,7 @@ public class CreeperCommand implements CommandExecutor {
     }
 
     public void addAllowedBlock(Material block) {
-        Constants.CreeperBlocks.add(block.toString().toLowerCase());
+        Configuration.creeperModule.getCreeperBlocks().add(block.toString().toLowerCase());
     }
 
 }

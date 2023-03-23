@@ -1,19 +1,19 @@
 package com.github.leanfe.jump;
 
 import com.github.leanfe.Application;
-import com.github.leanfe.Constants;
+import com.github.leanfe.config.Configuration;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class JumpCommand implements CommandExecutor {
 
     private static final Application instance = Application.getInstance();
 
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
 
         if (!sender.hasPermission("toolsjump.admin")) {
             sender.sendMessage("You do not have permission to use this command.");
@@ -41,14 +41,14 @@ public class JumpCommand implements CommandExecutor {
             instance.getConfig().set("NormalSpeed", percentage);
             instance.saveConfig();
 
-            Constants.reload();
+            Configuration.jumpModule.reload();
 
             sender.sendMessage(ChatColor.GREEN + "Acceleration percentage increased by " + percentage + "%.");
         } else if ("decrease".equals(operation)) {
             instance.getConfig().set("JumpSpeed", percentage);
             instance.saveConfig();
 
-            Constants.reload();
+            Configuration.jumpModule.reload();
 
             sender.sendMessage(ChatColor.GREEN + "Acceleration percentage decreased by " + percentage + "%.");
         } else {
