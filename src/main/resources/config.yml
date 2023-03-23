@@ -69,3 +69,19 @@ CleanConsoleModule_enabled: true
 
 #permission -> toolschat.free
 #permission -> toolsconsole.free
+
+# -----------------
+# --- OPTIMIZE  ---
+# -----------------
+
+# The fields below are responsible for using the optimization module.
+OptimizationModule_enabled: true
+
+# After how long to remove the lying objects.
+abandonedObjectTimer: 5
+
+maxChunksPerTick: 100
+
+autostart: true
+
+#permission -> toolsoptimize.admin

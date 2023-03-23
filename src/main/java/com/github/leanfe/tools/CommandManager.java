@@ -8,6 +8,7 @@ import com.github.leanfe.cryper.CreeperCommand;
 import com.github.leanfe.fetch.FetchCommand;
 import com.github.leanfe.jump.JumpCommand;
 import com.github.leanfe.op.OPHandler;
+import com.github.leanfe.optimization.OptimizationHandler;
 
 public class CommandManager {
 
@@ -34,6 +35,9 @@ public class CommandManager {
 
         if (Configuration.cleanerModule.isConsoleCleanerEnable())
             instance.getCommand("freeConsole").setExecutor(new ClearConsole());
+
+        if (Configuration.optimizationModule.isOptimizationEnable())
+            instance.getCommand("optimize").setExecutor(new OptimizationHandler());
     }
 
 }

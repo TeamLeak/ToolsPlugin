@@ -10,5 +10,5 @@ public class Configuration {
     public static final OpModule opModule = (OpModule) ModuleManager.getModuleByName("Op");
     public static final CreeperModule creeperModule = (CreeperModule) ModuleManager.getModuleByName("Creeper");
     public static final CleanerModule cleanerModule = (CleanerModule) ModuleManager.getModuleByName("Cleaner");
-
+    public static final OptimizationModule optimizationModule = (OptimizationModule) ModuleManager.getModuleByName("Optimization");
 }

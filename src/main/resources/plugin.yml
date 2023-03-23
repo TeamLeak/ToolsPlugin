@@ -41,3 +41,8 @@ commands:
     description: "Allows you to clear the console."
     permission: "toolsconsole.free"
     permission-message: "You do not have permission to use this command."
+  optimization:
+    usage: "/optimize <RAM/CPU/COLLECTOR/ABANDONED/ALL>"
+    description: "Allows you to optimize your server."
+    permission: "toolsoptimize.admin"
+    permission-message: "You do not have permission to use this command."
