@@ -56,3 +56,16 @@ FetchModule_enabled: true
 ForConsole: true
 
 #permission -> toolsfetch
+
+# -----------------
+# ---  CLEANER  ---
+# -----------------
+
+# The fields below are responsible for the chat and console cleanup commands, respectively.
+
+CleanChatModule_enabled: true
+
+CleanConsoleModule_enabled: true
+
+#permission -> toolschat.free
+#permission -> toolsconsole.free

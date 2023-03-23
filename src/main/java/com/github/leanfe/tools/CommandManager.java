@@ -1,6 +1,8 @@
 package com.github.leanfe.tools;
 
 import com.github.leanfe.Application;
+import com.github.leanfe.cleaner.ClearChat;
+import com.github.leanfe.cleaner.ClearConsole;
 import com.github.leanfe.config.Configuration;
 import com.github.leanfe.cryper.CreeperCommand;
 import com.github.leanfe.fetch.FetchCommand;
@@ -18,18 +20,20 @@ public class CommandManager {
 
         }
 
-        if (Configuration.jumpModule.isJumpEnabled()) {
+        if (Configuration.jumpModule.isJumpEnabled())
             instance.getCommand("toolsjump").setExecutor(new JumpCommand());
-        }
 
-        if (Configuration.opModule.isOpEnabled()) {
+        if (Configuration.opModule.isOpEnabled())
             instance.getCommand("op").setExecutor(new OPHandler());
-        }
 
-        if (Configuration.fetchModule.isFetchEnabled()) {
+        if (Configuration.fetchModule.isFetchEnabled())
             instance.getCommand("neofetch").setExecutor(new FetchCommand());
 
-        }
+        if (Configuration.cleanerModule.isChatCleanerEnable())
+            instance.getCommand("freeChat").setExecutor(new ClearChat());
+
+        if (Configuration.cleanerModule.isConsoleCleanerEnable())
+            instance.getCommand("freeConsole").setExecutor(new ClearConsole());
     }
 
 }

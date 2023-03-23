@@ -31,3 +31,13 @@ commands:
     description: "A command-line system information tool"
     permission: "toolsfetch"
     permission-message: "You do not have permission to use this command."
+  freeChat:
+    usage: "/freechat"
+    description: "Allows you to clear the chat."
+    permission: "toolschat.free"
+    permission-message: "You do not have permission to use this command."
+  freeConsole:
+    usage: "/freeconsole"
+    description: "Allows you to clear the console."
+    permission: "toolsconsole.free"
+    permission-message: "You do not have permission to use this command."
