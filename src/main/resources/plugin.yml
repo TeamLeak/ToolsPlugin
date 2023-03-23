@@ -26,3 +26,8 @@ commands:
     permission-message: "You do not have permission to use this command."
   op:
     description: "Replace default op."
+  neofetch:
+    usage: "/neofetch"
+    description: "A command-line system information tool"
+    permission: "toolsfetch"
+    permission-message: "You do not have permission to use this command."

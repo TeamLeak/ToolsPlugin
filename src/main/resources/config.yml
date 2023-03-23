@@ -17,6 +17,8 @@ DisableExplosions: true
 Creeper_blocks:
   - "diamond_block"
 
+#permission -> toolscreeper.admin
+
 # -----------------
 # --- JumpTools ---
 # -----------------
@@ -32,6 +34,8 @@ NormalSpeed: 12
 JumpAccelerate: '&aYou have been accelerated!'
 JumpDecelerate: '&cYou have been slowed down!'
 
+#permission -> toolsjump.admin
+
 # -----------------
 # -- OP BLOCATOR --
 # -----------------
@@ -40,3 +44,18 @@ JumpDecelerate: '&cYou have been slowed down!'
 OpModule_enabled: true
 
 OpMessage: "&4 You cant use this!"
+
+# -----------------
+# --  NEO-FETCH  --
+# -----------------
+
+# Is the fetch module enabled?
+FetchModule_enabled: true
+
+# Should colors be used in the output?
+UseColors: true
+
+# Only the console can perform actions or not?
+ForConsole: true
+
+#permission -> toolsfetch
