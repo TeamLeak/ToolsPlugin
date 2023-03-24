@@ -1,1 +1,11 @@
 rootProject.name = 'ToolsPlugin'
+include 'Configuration'
+include 'Core'
+include 'ApplicationStarter'
+include 'CleanerModule'
+include 'CreeperModule'
+include 'FetchModule'
+include 'JumpModule'
+include 'OPModule'
+include 'OptimizationModule'
+
