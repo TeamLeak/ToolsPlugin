@@ -1,6 +1,6 @@
 package com.github.leanfe.core.optimization;
 
-import config.Configuration;
+import com.github.leanfe.config.Configuration;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.World;

@@ -8,4 +8,5 @@ include 'FetchModule'
 include 'JumpModule'
 include 'OPModule'
 include 'OptimizationModule'
+include 'EffectsModule'
 

@@ -1,5 +1,6 @@
 package com.github.leanfe;
 
+import com.github.leanfe.classloader.JarLoadManager;
 import com.github.leanfe.cleaner.CleanerRegistrator;
 import com.github.leanfe.creeper.CreeperRegistrator;
 import com.github.leanfe.fetch.FetchRegistrator;
@@ -8,6 +9,8 @@ import com.github.leanfe.op.OPRegistrator;
 import com.github.leanfe.optimization.OptimizationRegistrator;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import static com.github.leanfe.classloader.JarLoadManager.loadAllApps;
 
 /**
  * The type Jump plugin.
@@ -29,6 +32,9 @@ public final class Application extends JavaPlugin {
 
         // Load modules.
         loadModules();
+
+        // Load applications.
+        loadAllApps();
     }
 
     @Override

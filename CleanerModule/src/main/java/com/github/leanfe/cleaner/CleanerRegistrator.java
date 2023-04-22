@@ -1,6 +1,6 @@
 package com.github.leanfe.cleaner;
 
-import config.Configuration;
+import com.github.leanfe.config.Configuration;
 import com.github.leanfe.core.instance.InstanceManager;
 import com.github.leanfe.core.modules.IRegistrator;
 
