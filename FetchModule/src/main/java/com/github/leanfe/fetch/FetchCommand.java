@@ -1,6 +1,6 @@
 package com.github.leanfe.fetch;
 
-import config.Configuration;
+import com.github.leanfe.config.Configuration;
 import com.github.leanfe.core.information.MinecraftServerInfo;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

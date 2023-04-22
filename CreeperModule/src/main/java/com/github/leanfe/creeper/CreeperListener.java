@@ -1,6 +1,6 @@
 package com.github.leanfe.creeper;
 
-import config.Configuration;
+import com.github.leanfe.config.Configuration;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Creeper;

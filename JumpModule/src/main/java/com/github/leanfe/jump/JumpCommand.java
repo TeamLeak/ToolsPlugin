@@ -1,6 +1,6 @@
 package com.github.leanfe.jump;
 
-import config.Configuration;
+import com.github.leanfe.config.Configuration;
 import com.github.leanfe.core.instance.InstanceManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

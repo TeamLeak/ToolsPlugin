@@ -1,6 +1,6 @@
-package config;
+package com.github.leanfe.config;
 
-import config.modules.*;
+import com.github.leanfe.config.modules.*;
 
 public class Configuration {
 

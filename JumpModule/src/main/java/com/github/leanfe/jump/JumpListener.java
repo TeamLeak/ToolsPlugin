@@ -1,7 +1,7 @@
 package com.github.leanfe.jump;
 
 import com.destroystokyo.paper.event.player.PlayerJumpEvent;
-import config.Configuration;
+import com.github.leanfe.config.Configuration;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

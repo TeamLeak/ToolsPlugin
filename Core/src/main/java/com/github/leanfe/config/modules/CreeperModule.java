@@ -1,4 +1,4 @@
-package config.modules;
+package com.github.leanfe.config.modules;
 
 import com.github.leanfe.core.instance.InstanceManager;
 import lombok.Getter;
